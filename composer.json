@@ -1,0 +1,15 @@
+{
+    "name": "outsourceappz/markdown-documenter",
+    "description": "A WordPress Plugin which takes markdown as source and produces documents in html. Inspiration https://laravel.com/docs",
+    "type": "",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "OutsourceAppz",
+            "email": "support@outsourceappz.com"
+        }
+    ],
+    "require": {
+        "erusev/parsedown-extra": "^0.7.1"
+    }
+}
