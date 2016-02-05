@@ -26,7 +26,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 define('MARKDOWN_DOCUMENTER_VERSION', '0.1.0');
@@ -34,13 +34,14 @@ define('MARKDOWN_DOCUMENTER_URL', plugin_dir_url(__FILE__));
 define('MARKDOWN_DOCUMENTER_PATH', dirname(__FILE__).'/');
 define('MARKDOWN_DOCUMENTER_LOCALE', 'en');
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in app/includes/class-activator.php
  */
 require plugin_dir_path( __FILE__ ) . 'app/includes/class-activator.php';
 register_activation_hook( __FILE__, array('Markdown_Documenter_Activator', 'activate') );
-
 
 /**
  * The code that runs during plugin deactivation.
@@ -73,3 +74,12 @@ require plugin_dir_path( __FILE__ ) . 'app/includes/class-plugin.php';
  */
 $plugin = new Markdown_Documenter();
 $plugin->run();
+
+/**
+ * Wrapper function for markdown to html conversion.
+ *
+ */
+function oa_markdown($text)
+{
+    return (new ParsedownExtra)->text($text);
+}
